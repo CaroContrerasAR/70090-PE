@@ -17,7 +17,7 @@ class MockingService {
             const savedPet = await Pet.create(pet)
             pets.push(savedPet)
         }
-        console.log(pets)
+        //console.log(pets)
         return pets
     }
 

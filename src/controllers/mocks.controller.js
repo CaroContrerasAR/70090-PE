@@ -25,7 +25,7 @@ const getMockingUsers = async (req, res) => {
 //genrar e insertar en base de datos cant de registros indicados
 const generateData = async (req, res) => {
     try {
-        const { users, pets } = req.query
+        const { users, pets } = req.body
         
         const usersQtty = parseInt(users) || 0
         const petsQtty = parseInt(pets) || 0
@@ -35,7 +35,7 @@ const generateData = async (req, res) => {
         await MockingService.generateData(usersQtty, petsQtty);
 
         res.status(200).send({
-            message: `Datos generados correctamente: ${userQuantity} usuarios y ${petQuantity} mascotas.`,
+            message: `Datos generados correctamente: ${usersQtty} usuarios y ${petsQtty} mascotas.`,
         });
     } catch (error) {
         res.status(500).send({error: error.message})
